@@ -15,7 +15,7 @@ public class BasicCard extends Card{
 	@Override
 	public View getCardContent(Context context) {
 		View view = LayoutInflater.from(context).inflate(R.layout.card_basic, null);
-		((TextView) view.findViewById(R.id.title)).setText(title);
+		((TextView) view.findViewById(R.id.basiccardtitle)).setText(title);
 		return view;
 	}
 

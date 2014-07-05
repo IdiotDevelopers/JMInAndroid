@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		Main = (CardUI)findViewById(R.id.mainCard);
-		TitleCard noti = new TitleCard("°øÁö»çÇ×","","#cd5c5c");
+		TitleCard noti = new TitleCard("ê³µì§€ì‚¬í•­","ê³µì¥ì‚¬í•­","#cd5c5c");
 		noti.setOnClickListener(new OnClickListener(){
 			@Override
 	        public void onClick(View v) {
@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		Main.addCard(noti);
-		TitleCard eat = new TitleCard("±Ş½Ä¸Ş´º","","#4169e1");
+		TitleCard eat = new TitleCard("ê¸‰ì‹","","#000000");
 		eat.setOnClickListener(new OnClickListener(){
 			@Override
 	        public void onClick(View v) {
@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		Main.addCard(eat);
-		TitleCard Schedule = new TitleCard("½Ã°£Ç¥","","#5f9ea0");
+		TitleCard Schedule = new TitleCard("ì‹œê°„í‘œ","","#5f9ea0");
 		eat.setOnClickListener(new OnClickListener(){
 			@Override
 	        public void onClick(View v) {
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		Main.addCard(Schedule);
-		TitleCard set = new TitleCard("¼³Á¤","","#bc8f8f");
+		TitleCard set = new TitleCard("ì„¤ì •","","#bc8f8f");
 		set.setOnClickListener(new OnClickListener(){
 			@Override
 	        public void onClick(View v) {
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		Main.addCard(set);
-		TitleCard info = new TitleCard("Á¤º¸","","#00cedd");
+		TitleCard info = new TitleCard("ì •ë³´","","#00cedd");
 		info.setOnClickListener(new OnClickListener(){
 			@Override
 	        public void onClick(View v) {

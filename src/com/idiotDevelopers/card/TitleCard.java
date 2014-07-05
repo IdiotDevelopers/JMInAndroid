@@ -11,14 +11,14 @@ import com.fima.cardsui.objects.Card;
 import com.idiotDevelopers.jminandroid.R;
 
 public class TitleCard extends Card{
-	public TitleCard(String title, String desc, String color){
-		super(title,desc,color,"#FFFFFF",false, true);
+	public TitleCard(String titlePlay, String desc, String color){
+		super(titlePlay,desc,color,"#000000",false, true);
 	}
 
 	@Override
 	public View getCardContent(Context context) {
 		View view = LayoutInflater.from(context).inflate(R.layout.card_title, null);
-		((TextView) view.findViewById(R.id.title)).setText(title);
+		((TextView) view.findViewById(R.id.titlecardtitle)).setText(titlePlay);
 		((TextView) view.findViewById(R.id.desc)).setText(desc);
 		((ImageView) view.findViewById(R.id.stripe)).setBackgroundColor(Color
 				.parseColor(color));

@@ -14,11 +14,11 @@ public class NotiActivity extends TabActivity {
 		
 		TabHost tabHost=getTabHost();
 		tabHost.addTab(tabHost.newTabSpec("tab1")
-				.setIndicator("°øÁö»çÇ×")
+				.setIndicator("ê³µì§€ì‚¬í•­")
 				.setContent(new Intent(this, SchoolnotiActivity.class)));
 		
 		tabHost.addTab(tabHost.newTabSpec("tab2")
-				.setIndicator("°¡Á¤Åë½Å¹®")
+				.setIndicator("ê°€ì •í†µì‹ ë¬¸")
 				.setContent(new Intent(this, SchoolnewslatterActivity.class)));
 		
 		tabHost.setCurrentTab(0);
