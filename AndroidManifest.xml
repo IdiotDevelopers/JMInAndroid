@@ -29,6 +29,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.idiotDevelopers.jminandroid.MainActivity" />
         </activity>
+		<activity
+            android:name="com.idiotDevelopers.jminandroid.SchoolnotiActivity"
+            android:label="@string/noti" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.idiotDevelopers.jminandroid.MainActivity" />
+        </activity>
+		<activity
+            android:name="com.idiotDevelopers.jminandroid.SchoolnewslatterActivity"
+            android:label="@string/noti" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.idiotDevelopers.jminandroid.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
