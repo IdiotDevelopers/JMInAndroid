@@ -9,29 +9,32 @@ import java.util.*;
 import com.idiotDevelopers.sqlite.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.view.*;
+import android.util.*;
 
 
 public class SchoolnewslatterActivity extends Activity implements OnItemClickListener
 {
 
-	String[][] noti;
+	String[][] noti= new String[3][15];
 	NotiList notilist;
 	Notiparsing notiparsing = new Notiparsing();
+	ListView listview;
+	private final Handler handler = new Handler()
+	{
+		@Override
+		public void handleMessage(Message msg)
+		{
+			ListUpdate();
+		}
+	};
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_newslatter);
-		ListView listview = (ListView)findViewById(R.id.list);
-		notiparsing.update("SchoolNewslatterActivity",this);
-		DatabaseHandler db = new DatabaseHandler(this);
-		for(int i=0;i<15;i++){
-			Newslatter newslatter = db.getNewslatter(i);
-			noti[1][i] = newslatter.getTitle().toString();
-			noti[0][i] = newslatter.getDesc().toString();
-			noti[2][i] = newslatter.getLink().toString();
-		}
+		listview = (ListView)findViewById(R.id.list);
+		notiparsing.open(this,"SchoolNewslatterActivity",handler);
 		notilist = new NotiList(this, noti[1],noti[0]);
 		listview.setAdapter(notilist);
 	}
@@ -43,5 +46,16 @@ public class SchoolnewslatterActivity extends Activity implements OnItemClickLis
 			case 0:
 				break;
 		}
+	}
+	private void ListUpdate(){
+		for(int i=0;i<15;i++){
+			DatabaseHandler db = new DatabaseHandler(this);
+			Newslatter newslatter = db.getNewslatter(i);
+			noti[1][i] = newslatter.getTitle().toString();
+			noti[0][i] = newslatter.getDesc().toString();
+			noti[2][i] = newslatter.getLink().toString();
+			Log.d(i+"","");
+		}
+		notilist.notifyDataSetChanged();
 	}
 }

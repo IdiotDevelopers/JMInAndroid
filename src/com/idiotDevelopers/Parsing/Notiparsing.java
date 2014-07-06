@@ -4,9 +4,12 @@ import org.jsoup.nodes.*;
 import java.io.*;
 import android.os.*;
 import org.jsoup.select.*;
-import android.content.Context;
+import android.content.*;
 import com.idiotDevelopers.sqlite.*;
 import com.idiotDevelopers.jminandroid.*;
+import android.util.*;
+import android.app.*;
+import android.database.*;
 
 public class Notiparsing
 {
@@ -14,56 +17,87 @@ public class Notiparsing
 	String url;
 	Document doc;
 	Handler handler;
-	DatabaseHandler db;
 	String classname;
-	public void update(String classname, Context context){
+	DatabaseHandler db;
+	Context context;
+	Element notiEle;
+	public void open(Context context, String Classname,Handler handler)
+	{
+		this.context = context;
+		this.handler = handler;
+		classname = Classname;
 		db = new DatabaseHandler(context);
-		this.classname = classname;
-		handler = new Handler();
-		new Thread(runnable).start();
-	}
-	Runnable runnable = new Runnable(){
-		public void run(){
-			try {
-				if(classname == "SchoolnotiActivity"){
-					url="http://m.jeongmyung.hs.kr/board.list?mcode=1110&no_gongji=";
-				}
-				else{
-					url="http://m.jeongmyung.hs.kr/board.list?mcode=1112&no_gongji=y";
-				}
-				doc = Jsoup.connect(url).get();
-			} catch (IOException e) {
-				e.printStackTrace();
+		try
+		{
+			if(classname == "SchoolnotiActivity"){
+				url="http://m.jeongmyung.hs.kr/board.list?mcode=1110&no_gongji=";
 			}
-			handler.post(new Runnable(){
-				public void run(){
-					Elements noti = doc.select("div.info");
-					if(classname == "SchoolnotiActivity" ){
-						for(int i=0;i<15;i++){
-							notiList[0] = noti.get(i).select("div.left").get(0).toString().replaceAll("&nbsp;","");
-							System.out.println(notiList[0]);
-							notiList[1] = noti.get(i).select("div.title").get(0).toString();
-							System.out.println(notiList[1]);
-							notiList[2] = noti.get(i).select("div.title > a href").get(0).toString();
-							System.out.println(notiList[2]);
-							db.updateNoti(new Noti(i,notiList[1], notiList[0], notiList[2]));
-						}
-					}
-					else{
-						for(int i=0;i<15;i++){
-							notiList[0] = noti.get(i).select("div.left").get(0).toString().replaceAll("&nbsp;","");
-							System.out.println(notiList[0]);
-							notiList[1] = noti.get(i).select("div.title").get(0).toString();
-							System.out.println(notiList[1]);
-							notiList[2] = noti.get(i).select("div.title > a href").get(0).toString();
-							System.out.println(notiList[2]);
-							db.updateNewslatter(new Newslatter(i,notiList[1], notiList[0], notiList[2]));
-						}
-					}
+			else{
+				url="http://m.jeongmyung.hs.kr/board.list?mcode=1112&no_gongji=y";
+			}
+			process();
+		}catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	private void process() throws IOException
+	{
+		//상태 Progress 띄우기 위해서 사용함!
+		final Handler mHandler = new Handler();
+		new Thread()
+		{
+
+			@Override
+			public void run()
+			{
+				try
+				{
+					doc=Jsoup.connect(url).get();
 					
 				}
-			});
-			db.close();
-		}
-	};
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+				Elements noti = doc.select("li");
+				if(classname == "SchoolnotiActivity" ){
+					for(int i=8;i<23;i++){
+						notiEle = noti.get(i);
+						notiList[0] = notiEle.select("div.left").get(0).toString().replaceAll("&nbsp;","");
+						notiList[1] = notiEle.select("div.title").get(0).toString();
+						notiList[2] = notiEle.select("div.title > a").get(0).toString();					
+						db.updateNoti(new Noti(i,notiList[1], notiList[0], notiList[2]));
+						Log.d("parsing...",notiList[1]+notiList[0]+notiList[2]);
+					}
+				}
+				else{
+					for(int i=0;i<15;i++){
+						notiEle = noti.get(i+8);
+						notiList[0] = notiEle.select("div.left").get(0).text().toString().replaceAll("&nbsp;","");
+						notiList[1] = notiEle.select("div.title").get(0).text().toString();
+						notiList[2] = notiEle.select("div.title > a").get(0).text("href").toString();
+						if(db.getNewslatterCount() == i){
+							db.addNewslatter(new Newslatter(i,notiList[1], notiList[0], notiList[2]));
+						}
+						else if(db.getNewslatter(i).getTitle() != notiList[1]){
+							db.updateNewslatter(new Newslatter(i,notiList[1], notiList[0], notiList[2]));
+						}
+						Log.d("parsing...",i+db.getNewslatter(i).getTitle()+db.getNewslatter(i).getDesc()+db.getNewslatter(i).getLink());
+					}
+				}	
+				db.closeDB();
+
+				mHandler.post(new Runnable(){
+					public void run()
+					{
+						//업데이트 완료를 핸들러로 보내줌
+						handler.sendEmptyMessage(0);
+					}
+				});
+			}
+
+		}.start();
+	}
 }

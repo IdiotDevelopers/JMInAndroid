@@ -154,10 +154,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return cursor.getCount();
 	}
 	
-	void addNewslatter(Newslatter contact) {
+	public void addNewslatter(Newslatter contact) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
+		values.put(KEY_ID, contact.getID());
 		values.put(KEY_TITLE, contact.getTitle()); // Contact title
 		values.put(KEY_DESC, contact.getDesc()); // Contact desc
 		values.put(KEY_LINK, contact.getLink()); // Contact author
@@ -237,10 +238,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String countQuery = "SELECT  * FROM " + TABLE_NEWSLATTER;
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery(countQuery, null);
+		int re =cursor.getCount();
 		cursor.close();
-
+		
 		// return count
-		return cursor.getCount();
+		return re;
 	}
-
+	public void closeDB() {
+		SQLiteDatabase db = this.getReadableDatabase();
+		if (db != null && db.isOpen())
+			db.close();
+	}
 }
