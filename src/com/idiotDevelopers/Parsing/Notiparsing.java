@@ -21,10 +21,9 @@ public class Notiparsing
 	DatabaseHandler db;
 	Context context;
 	Element notiEle;
-	public void open(Context context, String Classname,Handler handler)
+	public void open(Context context, String Classname)
 	{
 		this.context = context;
-		this.handler = handler;
 		classname = Classname;
 		db = new DatabaseHandler(context);
 		try
@@ -44,8 +43,7 @@ public class Notiparsing
 
 	private void process() throws IOException
 	{
-		//상태 Progress 띄우기 위해서 사용함!
-		final Handler mHandler = new Handler();
+		//상태 Progress 띄우기 위해서 사용함
 		new Thread()
 		{
 
@@ -77,7 +75,7 @@ public class Notiparsing
 						notiEle = noti.get(i+8);
 						notiList[0] = notiEle.select("div.left").get(0).text().toString().replaceAll("&nbsp;","");
 						notiList[1] = notiEle.select("div.title").get(0).text().toString();
-						notiList[2] = notiEle.select("div.title > a").get(0).text("href").toString();
+						notiList[2] = notiEle.select("div.title > a").first().attr("abs:href");
 						if(db.getNewslatterCount() == i){
 							db.addNewslatter(new Newslatter(i,notiList[1], notiList[0], notiList[2]));
 						}
@@ -86,17 +84,11 @@ public class Notiparsing
 						}
 						Log.d("parsing...",i+db.getNewslatter(i).getTitle()+db.getNewslatter(i).getDesc()+db.getNewslatter(i).getLink());
 					}
+					
 				}	
 				db.closeDB();
-
-				mHandler.post(new Runnable(){
-					public void run()
-					{
-						//업데이트 완료를 핸들러로 보내줌
-						handler.sendEmptyMessage(0);
-					}
-				});
 			}
+			
 
 		}.start();
 	}

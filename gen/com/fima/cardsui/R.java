@@ -219,8 +219,8 @@ public final class R {
     }
     public static final class id {
         public static final int ScrollView1=0x7f09000c;
-        public static final int action_refresh=0x7f090017;
-        public static final int action_settings=0x7f090016;
+        public static final int action_refresh=0x7f090018;
+        public static final int action_settings=0x7f090017;
         public static final int basiccardtitle=0x7f090002;
         public static final int cardContent=0x7f090010;
         public static final int contentLayout=0x7f090004;
@@ -242,6 +242,7 @@ public final class R {
         public static final int tableLayout=0x7f09000d;
         public static final int title=0x7f090005;
         public static final int titlecardtitle=0x7f090008;
+        public static final int webview=0x7f090016;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -260,6 +261,7 @@ public final class R {
         public static final int item_play_card_empty_first=0x7f03000d;
         public static final int item_stack=0x7f03000e;
         public static final int notilist_row=0x7f03000f;
+        public static final int webview=0x7f030010;
     }
     public static final class menu {
         public static final int main=0x7f080000;
