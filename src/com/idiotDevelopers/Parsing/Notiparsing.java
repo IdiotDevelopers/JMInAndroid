@@ -61,8 +61,8 @@ public class Notiparsing
 				}
 				Elements noti = doc.select("li");
 				if(classname == "SchoolnotiActivity" ){
-					for(int i=8;i<23;i++){
-						notiEle = noti.get(i);
+					for(int i=0;i<15;i++){
+						notiEle = noti.get(i+8);
 						notiList[0] = notiEle.select("div.left").get(0).toString().replaceAll("&nbsp;","");
 						notiList[1] = notiEle.select("div.title").get(0).toString();
 						notiList[2] = notiEle.select("div.title > a").get(0).toString();					
