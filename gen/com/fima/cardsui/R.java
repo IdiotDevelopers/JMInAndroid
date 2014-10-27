@@ -208,14 +208,46 @@ public final class R {
         public static final int widget_margin_top_bottom=0x7f05001a;
     }
     public static final class drawable {
-        public static final int card=0x7f020000;
-        public static final int card_background=0x7f020001;
-        public static final int card_background_shadow=0x7f020002;
-        public static final int card_shadow=0x7f020003;
-        public static final int ic_action_refresh=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int selectable_background_cardbank=0x7f020006;
-        public static final int top_shadow=0x7f020007;
+        public static final int ab_background_textured_jm=0x7f020000;
+        public static final int ab_bottom_solid_jm=0x7f020001;
+        public static final int ab_solid_jm=0x7f020002;
+        public static final int ab_stacked_solid_jm=0x7f020003;
+        public static final int ab_texture_tile_jm=0x7f020004;
+        public static final int ab_transparent_jm=0x7f020005;
+        public static final int btn_cab_done_default_jm=0x7f020006;
+        public static final int btn_cab_done_focused_jm=0x7f020007;
+        public static final int btn_cab_done_jm=0x7f020008;
+        public static final int btn_cab_done_pressed_jm=0x7f020009;
+        public static final int cab_background_bottom_jm=0x7f02000a;
+        public static final int cab_background_top_jm=0x7f02000b;
+        public static final int card=0x7f02000c;
+        public static final int card_background=0x7f02000d;
+        public static final int card_background_shadow=0x7f02000e;
+        public static final int card_shadow=0x7f02000f;
+        public static final int ic_action_refresh=0x7f020010;
+        public static final int ic_launcher=0x7f020011;
+        public static final int list_focused_jm=0x7f020012;
+        public static final int list_pressed_jm=0x7f020013;
+        public static final int menu_dropdown_panel_jm=0x7f020014;
+        public static final int progress_bg_jm=0x7f020015;
+        public static final int progress_horizontal_jm=0x7f020016;
+        public static final int progress_primary_jm=0x7f020017;
+        public static final int progress_secondary_jm=0x7f020018;
+        public static final int selectable_background_cardbank=0x7f020019;
+        public static final int selectable_background_jm=0x7f02001a;
+        public static final int spinner_ab_default_jm=0x7f02001b;
+        public static final int spinner_ab_disabled_jm=0x7f02001c;
+        public static final int spinner_ab_focused_jm=0x7f02001d;
+        public static final int spinner_ab_pressed_jm=0x7f02001e;
+        public static final int spinner_background_ab_jm=0x7f02001f;
+        public static final int tab_indicator_ab_jm=0x7f020020;
+        public static final int tab_selected_focused_jm=0x7f020021;
+        public static final int tab_selected_jm=0x7f020022;
+        public static final int tab_selected_pressed_jm=0x7f020023;
+        public static final int tab_unselected_focused_jm=0x7f020024;
+        public static final int tab_unselected_jm=0x7f020025;
+        public static final int tab_unselected_pressed_jm=0x7f020026;
+        public static final int top_shadow=0x7f020027;
     }
     public static final class id {
         public static final int ScrollView1=0x7f09000c;
@@ -245,23 +277,27 @@ public final class R {
         public static final int webview=0x7f090016;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int activity_newslatter=0x7f030001;
-        public static final int activity_noti=0x7f030002;
-        public static final int card_basic=0x7f030003;
-        public static final int card_color=0x7f030004;
-        public static final int card_title=0x7f030005;
-        public static final int cards_view=0x7f030006;
-        public static final int cards_view_multicolumn=0x7f030007;
-        public static final int footer_fragment=0x7f030008;
-        public static final int header=0x7f030009;
-        public static final int item_card=0x7f03000a;
-        public static final int item_card_empty_first=0x7f03000b;
-        public static final int item_card_empty_last=0x7f03000c;
-        public static final int item_play_card_empty_first=0x7f03000d;
-        public static final int item_stack=0x7f03000e;
-        public static final int notilist_row=0x7f03000f;
-        public static final int webview=0x7f030010;
+        public static final int activity_dinner=0x7f030000;
+        public static final int activity_eat=0x7f030001;
+        public static final int activity_lunch=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_newslatter=0x7f030004;
+        public static final int activity_noti=0x7f030005;
+        public static final int activity_schedule=0x7f030006;
+        public static final int card_basic=0x7f030007;
+        public static final int card_color=0x7f030008;
+        public static final int card_title=0x7f030009;
+        public static final int cards_view=0x7f03000a;
+        public static final int cards_view_multicolumn=0x7f03000b;
+        public static final int footer_fragment=0x7f03000c;
+        public static final int header=0x7f03000d;
+        public static final int item_card=0x7f03000e;
+        public static final int item_card_empty_first=0x7f03000f;
+        public static final int item_card_empty_last=0x7f030010;
+        public static final int item_play_card_empty_first=0x7f030011;
+        public static final int item_stack=0x7f030012;
+        public static final int notilist_row=0x7f030013;
+        public static final int webview=0x7f030014;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -278,6 +314,10 @@ public final class R {
         public static final int title=0x7f070004;
     }
     public static final class style {
+        public static final int ActionBar_Solid_Jm=0x7f06000b;
+        public static final int ActionBar_Transparent_Jm=0x7f06000c;
+        public static final int ActionBarTabStyle_Jm=0x7f06000f;
+        public static final int ActionButton_CloseMode_Jm=0x7f060012;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -320,9 +360,17 @@ public final class R {
         public static final int CardText=0x7f060000;
         public static final int CardTitle=0x7f060002;
         public static final int CardTitleBold=0x7f060003;
+        public static final int DropDownListView_Jm=0x7f06000e;
+        public static final int DropDownNav_Jm=0x7f060010;
         public static final int Item=0x7f060005;
         public static final int Item_Sticky=0x7f060007;
         public static final int Item_Top=0x7f060006;
+        public static final int PopupMenu_Jm=0x7f06000d;
+        public static final int ProgressBar_Jm=0x7f060011;
         public static final int StackTitle=0x7f060004;
+        public static final int Theme_Jm=0x7f06000a;
+        /**  this style is only referenced in a Light.DarkActionBar based theme 
+         */
+        public static final int Theme_Jm_Widget=0x7f060013;
     }
 }

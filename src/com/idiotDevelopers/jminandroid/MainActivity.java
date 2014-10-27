@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		Main = (CardUI)findViewById(R.id.mainCard);
-		TitleCard noti = new TitleCard("공지사항","공쥐사항","#cd5c5c");
+		TitleCard noti = new TitleCard("공지사항","","#cd5c5c");
 		noti.setOnClickListener(new OnClickListener(){
 			@Override
 	        public void onClick(View v) {
