@@ -29,16 +29,16 @@ public class SchoolnewslatterActivity extends Activity implements OnItemClickLis
 		setContentView(R.layout.activity_newslatter);
 		listview = (ListView)findViewById(R.id.list);	
 		notilist = new NotiList(this, noti[1],noti[0]);
-		while(db.getNewslatterCount()!=15){}
 		ListUpdate();
+		while(db.getNewslatterCount()!=15){}
 		listview.setAdapter(notilist);
 	}
 	@Override
 	public void onItemClick(AdapterView<?> p1, View p2, int position, long p4)
 	{
 		// TODO: Implement this method
-		while(db.getNewslatterCount()!=15){}
 		ListUpdate();
+		while(db.getNewslatterCount()!=15){}
 		switch(position){
 			case 0:
 				final String link0 = db.getNewslatter(0).getLink();

@@ -7,6 +7,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="급식이 없거나 아직 등록되지 않았습니다." />
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:text="기장밥\n떡물만두국\n제육볶음\n연두부 양념장\n김치\n\n에너지: 0 kcal\n탄수화물: 0g\n단백질: 0g\n지방: 0g\n칼슘: 0mg" />
 
 </LinearLayout>

@@ -20,11 +20,11 @@ public class NotiActivity extends TabActivity {
 		actionbar.setDisplayHomeAsUpEnabled(true);
 		TabHost tabHost=getTabHost();
 		tabHost.addTab(tabHost.newTabSpec("tab1")
-				.setIndicator("ê³µì§€ì‚¬í•­")
+				.setIndicator("°øÁö»çÇ×")
 				.setContent(new Intent(this, SchoolnotiActivity.class)));
 		
 		tabHost.addTab(tabHost.newTabSpec("tab2")
-				.setIndicator("ê°€ì •í†µì‹ ë¬¸")
+				.setIndicator("°¡Á¤Åë½Å¹®")
 				.setContent(new Intent(this, SchoolnewslatterActivity.class)));
 		
 		tabHost.setCurrentTab(0);

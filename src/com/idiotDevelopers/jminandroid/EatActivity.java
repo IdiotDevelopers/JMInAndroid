@@ -27,7 +27,7 @@ public class EatActivity extends TabActivity {
 					   .setIndicator("DINNER")
 					   .setContent(new Intent(this, DinnerActivity.class)));
 
-		tabHost.setCurrentTab(1);
+		tabHost.setCurrentTab(0);
 	}
 
 	@Override
