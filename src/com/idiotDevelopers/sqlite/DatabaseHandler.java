@@ -79,7 +79,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	}
 
 	// Getting single contact
-	Noti getNoti(int id) {
+	public Noti getNoti(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
 		Cursor cursor = db.query(TABLE_NOTI, new String[] { KEY_ID,
